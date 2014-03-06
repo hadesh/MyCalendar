@@ -13,7 +13,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%d %d %d - %d %d %d - %d - %@ %@ %@ - %@ %@", self.yaer, self.month, self.day, self.weekday, self.weekOfMonth, self.weekOfYear, self.isLeapMonth, self.lunarYear, self.lunarMonth, self.lunarDay, self.lunarHolidayTitle, self.solarTermTitle];
+    return [NSString stringWithFormat:@"%d %d %d - %d %d %d - %d - %@ %@ %@ - %@ %@", self.year, self.month, self.day, self.weekday, self.weekOfMonth, self.weekOfYear, self.isLeapMonth, self.lunarYear, self.lunarMonth, self.lunarDay, self.lunarHolidayTitle, self.solarTermTitle];
 }
 
 @end

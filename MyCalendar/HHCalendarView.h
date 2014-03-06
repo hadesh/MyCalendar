@@ -27,7 +27,15 @@ typedef NS_ENUM(NSInteger, HHCalendarType)
 
 @property (nonatomic, readonly) HHCalendarComponents *todayComponents;
 
+@property (nonatomic, readonly) NSInteger startYear;
+
+@property (nonatomic, readonly) NSInteger endYear;
+
 @property (nonatomic, assign) NSInteger monthOffset;
+
+- (void)showsWithYear:(NSInteger)year month:(NSInteger)month;
+
+- (void)showsWithDate:(NSDate *)date;
 
 - (void)showsToday;
 

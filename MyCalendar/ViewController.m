@@ -10,10 +10,12 @@
 #import <Foundation/Foundation.h>
 
 #import "HHCalendarView.h"
+#import "CalendarPickerView.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) HHCalendarView *calendarView;
+@property (nonatomic, strong) CalendarPickerView *calendarPicker;
 
 @end
 
@@ -34,12 +36,60 @@
                                                                             target:self
                                                                             action:@selector(nextAction)];
     
-    
-    self.calendarView = [[HHCalendarView alloc] initWithFrame:self.view.bounds];
+    self.calendarView = [[HHCalendarView alloc] initWithFrame:CGRectMake(0, 0, 320, 380)];
     [self.view addSubview:self.calendarView];
+    
+    self.calendarPicker = [[CalendarPickerView alloc] initWithFormYear:self.calendarView.startYear endYear:self.calendarView.endYear];
+    
+    self.calendarPicker.hidden = YES;
+    [self.view addSubview:self.calendarPicker];
     
     [self updateUI];
     
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    
+    button.frame = CGRectMake(5, 440, 32, 32);
+    [button addTarget:self action:@selector(tapAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    
+    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    button1.frame = CGRectMake(250, 440, 60, 30);
+    [button1 setTitle:@"显示今天" forState:UIControlStateNormal];
+    [button1 addTarget:self action:@selector(todayAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button1];
+    
+}
+
+- (void)todayAction:(id)sender
+{
+    [self.calendarView showsToday];
+    [self updateUI];
+}
+
+- (void)tapAction:(id)sender
+{
+    if (self.calendarPicker.hidden)
+    {
+        self.calendarPicker.hidden = NO;
+        [self.calendarPicker setSelectedWithYear:self.calendarView.currentYearComponents.year month:self.calendarView.currentYearComponents.month];
+        
+        self.calendarView.userInteractionEnabled = NO;
+        
+    }
+    else
+    {
+        NSInteger year = [self.calendarPicker getSelectedYear];
+        NSInteger month = [self.calendarPicker getSelectedMonth];
+        
+        [self.calendarView showsWithYear:year month:month];
+        
+        self.calendarPicker.hidden = YES;
+        self.calendarView.userInteractionEnabled = YES;
+        
+        [self updateUI];
+    }
 }
 
 - (void)prevAction
@@ -56,7 +106,7 @@
 
 - (void)updateUI
 {
-    self.title = [NSString stringWithFormat:@"%d年%d月[%@年(%@)]", self.calendarView.currentYearComponents.yaer, self.calendarView.currentYearComponents.month, self.calendarView.currentYearComponents.lunarYear, self.calendarView.currentYearComponents.lunarZodiac];
+    self.title = [NSString stringWithFormat:@"%d年%d月[%@年(%@)]", self.calendarView.currentYearComponents.year, self.calendarView.currentYearComponents.month, self.calendarView.currentYearComponents.lunarYear, self.calendarView.currentYearComponents.lunarZodiac];
     
     NSInteger prevMonth = self.calendarView.currentYearComponents.month - 1 > 0 ? self.calendarView.currentYearComponents.month - 1 : 12;
     NSInteger nextMonth = self.calendarView.currentYearComponents.month + 1 < 13 ? self.calendarView.currentYearComponents.month + 1 : 1;

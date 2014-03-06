@@ -16,4 +16,7 @@
 - (HHCalendarComponents *)componentsFromDate:(NSDate *)date;
 - (HHCalendarComponents *)componentsFromComponents:(NSDateComponents *)comp;
 
+- (NSInteger)startYear;
+- (NSInteger)endYear;
+
 @end

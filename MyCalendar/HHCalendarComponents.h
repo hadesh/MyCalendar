@@ -10,7 +10,7 @@
 
 @interface HHCalendarComponents : NSObject
 
-@property (nonatomic, assign) NSInteger yaer;
+@property (nonatomic, assign) NSInteger year;
 @property (nonatomic, assign) NSInteger month;
 @property (nonatomic, assign) NSInteger day;
 @property (nonatomic, assign) NSInteger weekday;

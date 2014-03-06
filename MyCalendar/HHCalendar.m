@@ -97,6 +97,16 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
 
 #pragma mark - Interface
 
+- (NSInteger)startYear
+{
+    return kLunarYearStart;
+}
+
+- (NSInteger)endYear
+{
+    return kLunarYearEnd;
+}
+
 - (HHCalendarComponents *)componentsFromDate:(NSDate *)date
 {
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -109,7 +119,7 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
 - (HHCalendarComponents *)componentsFromComponents:(NSDateComponents *)comp
 {
     HHCalendarComponents *HHcomponents = [[HHCalendarComponents alloc] init];
-    HHcomponents.yaer = comp.year;
+    HHcomponents.year = comp.year;
     HHcomponents.month = comp.month;
     HHcomponents.day = comp.day;
     HHcomponents.weekday = comp.weekday;
@@ -127,12 +137,12 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
 
 - (void)initLunarCalendarInfo:(inout HHCalendarComponents **)components
 {
-    if ((*components) == nil || (*components).yaer < kLunarYearStart - 1 || (*components).yaer > kLunarYearEnd)
+    if ((*components) == nil || (*components).year < kLunarYearStart - 1 || (*components).year > kLunarYearEnd)
     {
         return;
     }
     
-    NSInteger year = (*components).yaer;
+    NSInteger year = (*components).year;
     NSInteger month = (*components).month;
     NSInteger day = (*components).day;
     
@@ -280,6 +290,7 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
     {
         NSString *key = [NSString stringWithFormat:@"%d-%d", (*components).lunarMonthIndex, (*components).lunarDayIndex];
         
+        // 屏蔽腊月29春节
         if ((*components).isLargeMonth && [key isEqualToString:@"12-29"])
         {
             return;

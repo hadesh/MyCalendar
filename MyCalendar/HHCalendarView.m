@@ -37,6 +37,9 @@
     if (self) {
         // Initialization code
         
+        _calendarType = HHCalendarTypeMonth;
+        _monthOffset = -1;
+        
         [self initWeekTitleView];
         [self initCurrentMonth];
         [self initInfoLabel];
@@ -107,6 +110,7 @@
     {
         return;
     }
+    
     _monthOffset = monthOffset;
     
     [_contentView removeFromSuperview];
@@ -116,10 +120,34 @@
     
 }
 
+- (void)showsWithYear:(NSInteger)year month:(NSInteger)month
+{
+    NSInteger currentYear = self.todayComponents.year;
+    NSInteger currentMonth = self.todayComponents.month;
+    
+    NSInteger monthOffset = (year - currentYear) * 12 + (month - currentMonth);
+    
+    [self setMonthOffset:monthOffset];
+}
+
+- (void)showsWithDate:(NSDate *)date
+{
+    [self showsWithYear:[date year] month:[date month]];
+}
+
 - (void)showsToday
 {
-    
     [self initCurrentMonth];
+}
+
+- (NSInteger)startYear
+{
+    return [[HHCalendar sharedCalendar] startYear];
+}
+
+- (NSInteger)endYear
+{
+    return [[HHCalendar sharedCalendar] endYear];
 }
 
 #pragma mark - Private
@@ -131,7 +159,7 @@
         return;
     }
     
-    NSString *info = [NSString stringWithFormat:@"%d-%d-%d %@(%@)年%@ %@", components.yaer, components.month, components.day, components.lunarYear, components.lunarZodiac, components.lunarMonth, components.lunarDay];
+    NSString *info = [NSString stringWithFormat:@"%d-%d-%d %@(%@)年%@ %@", components.year, components.month, components.day, components.lunarYear, components.lunarZodiac, components.lunarMonth, components.lunarDay];
     
     _selectedDayLabel.text = info;
 }
@@ -167,7 +195,7 @@
     NSDateComponents *comps;
     
     // 年月日获得
-    comps = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear)fromDate:currentMonthDate];
+    comps = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear) fromDate:currentMonthDate];
     [comps setDay:1];
     
     NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:comps];
@@ -204,7 +232,7 @@
 
 - (void)initInfoLabel
 {
-    _selectedDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, _titleView.bounds.size.height + _contentView.bounds.size.height - kInfoLabelDefaultHeight * 4, _contentView.bounds.size.width, kInfoLabelDefaultHeight)];
+    _selectedDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 330, _contentView.bounds.size.width, kInfoLabelDefaultHeight)];
     
     [self addSubview:_selectedDayLabel];
     
@@ -213,7 +241,7 @@
 
 - (void)initCurrentMonth
 {
-    [self initViewByMountOffset:0];
+    [self setMonthOffset:0];
 }
 
 - (void)initWeekTitleView
