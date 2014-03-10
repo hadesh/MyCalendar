@@ -46,6 +46,7 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
 	NSArray *_dayArray;
     
     NSDictionary *_lunarHolidays;
+    NSMutableDictionary *_solarTermDic;
 }
 
 @end
@@ -74,11 +75,19 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
         
         _lunarZodiacs = [NSArray arrayWithObjects:@"鼠", @"牛", @"虎", @"兔", @"龙", @"蛇", @"马", @"羊", @"猴", @"鸡", @"狗", @"猪", nil];
         
-        _solarTerms = [NSArray arrayWithObjects:@"立春", @"雨水", @"惊蛰", @"春分", @"清明", @"谷雨", @"立夏", @"小满", @"芒种", @"夏至", @"小暑", @"大暑", @"立秋", @"处暑", @"白露", @"秋分", @"寒露", @"霜降", @"立冬", @"小雪", @"大雪", @"冬至", @"小寒", @"大寒", nil];
+        _solarTerms = [NSArray arrayWithObjects:@"小寒", @"大寒", @"立春", @"雨水",
+                       @"惊蛰", @"春分", @"清明", @"谷雨",
+                       @"立夏", @"小满", @"芒种", @"夏至",
+                       @"小暑", @"大暑", @"立秋", @"处暑",
+                       @"白露", @"秋分", @"寒露", @"霜降",
+                       @"立冬", @"小雪", @"大雪", @"冬至", nil];
         
         _monthArray = [NSArray arrayWithObjects:@"正月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月",  @"十月", @"冬月", @"腊月", nil];
         
-        _dayArray = [NSArray arrayWithObjects:@"初一", @"初二", @"初三", @"初四", @"初五", @"初六", @"初七", @"初八", @"初九", @"初十", @"十一", @"十二", @"十三", @"十四", @"十五", @"十六", @"十七", @"十八", @"十九", @"二十", @"廿一", @"廿二", @"廿三", @"廿四", @"廿五", @"廿六", @"廿七", @"廿八", @"廿九", @"三十", nil];
+        _dayArray = [NSArray arrayWithObjects:@"初一", @"初二", @"初三", @"初四", @"初五", @"初六",
+                     @"初七", @"初八", @"初九", @"初十", @"十一", @"十二", @"十三", @"十四", @"十五",
+                     @"十六", @"十七", @"十八", @"十九", @"二十", @"廿一", @"廿二", @"廿三", @"廿四",
+                     @"廿五", @"廿六", @"廿七", @"廿八", @"廿九", @"三十", nil];
         
         _lunarHolidays = @{@"1-1": @"春节",
                            @"1-15": @"元宵节",
@@ -90,6 +99,8 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
                            @"12-8": @"腊八",
                            @"12-29": @"除夕",
                            @"12-30": @"除夕"};
+        
+        _solarTermDic = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -128,6 +139,8 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
     HHcomponents.isLeapMonth = comp.isLeapMonth;
     
     [self initLunarCalendarInfo:&HHcomponents];
+    
+    [self initSolarTerm:&HHcomponents];
     
     return HHcomponents;
 
@@ -300,4 +313,51 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
     }
 }
 
+- (void)initSolarTerm:(inout HHCalendarComponents **)components
+{
+    if ((*components) == nil || (*components).year < kLunarYearStart - 1 || (*components).year > kLunarYearEnd)
+    {
+        return;
+    }
+    
+    NSInteger year = (*components).year;
+    NSInteger month = (*components).month;
+    NSInteger day = (*components).day;
+    
+    // 1号的时候计算本月节气日期
+    if (day == 1)
+    {
+        [_solarTermDic removeAllObjects];
+        
+        for (int i = month * 2 - 1 - 1; i <= month * 2 - 1; ++i)
+        {
+            char *result = NULL;
+            getSolarTermDate(year, i, &result);
+            
+            if (result != NULL)
+            {
+                NSString *str = [NSString stringWithUTF8String:result];
+                [_solarTermDic setObject:[NSNumber numberWithInt:i] forKey:str];
+                free(result);
+            }
+
+        }
+    }
+    else
+    {
+        NSString *solarTermKey = [NSString stringWithFormat:@"%04d-%02d-%02d", year, month, day];
+        NSNumber *index = [_solarTermDic objectForKey:solarTermKey];
+        if (index)
+        {
+            (*components).solarTermTitle = _solarTerms[[index intValue]];
+        }
+        
+    } 
+}
+
 @end
+
+
+
+
+

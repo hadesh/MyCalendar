@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, HHCalendarType)
 
 @property (nonatomic, assign) HHCalendarType calendarType;
 
-@property (nonatomic, readonly) HHCalendarComponents *currentYearComponents;
+@property (nonatomic, readonly) HHCalendarComponents *currentMonthComponents;
 
 @property (nonatomic, readonly) HHCalendarComponents *todayComponents;
 
@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, HHCalendarType)
 
 @property (nonatomic, readonly) NSInteger endYear;
 
-@property (nonatomic, assign) NSInteger monthOffset;
+@property (nonatomic, assign) NSInteger monthOffset; // 当前显示月和今天所在月的差
 
 - (void)showsWithYear:(NSInteger)year month:(NSInteger)month;
 

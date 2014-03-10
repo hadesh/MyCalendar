@@ -27,7 +27,7 @@
 @implementation HHCalendarView
 @synthesize calendarType = _calendarType;
 @synthesize monthOffset = _monthOffset;
-@synthesize currentYearComponents = _currentYearComponents;
+@synthesize currentMonthComponents = _currentMonthComponents;
 @synthesize todayComponents = _todayComponents;
 @synthesize delegate = _delegate;
 
@@ -159,14 +159,19 @@
         return;
     }
     
-    NSString *info = [NSString stringWithFormat:@"%d-%d-%d %@(%@)年%@ %@", components.year, components.month, components.day, components.lunarYear, components.lunarZodiac, components.lunarMonth, components.lunarDay];
+    NSMutableString *info = [NSMutableString stringWithFormat:@"%04d-%02d-%02d %@(%@)年 %@ %@", components.year, components.month, components.day, components.lunarYear, components.lunarZodiac, components.lunarMonth, components.lunarDay];
+    
+    if (components.lunarHolidayTitle)
+    {
+        [info appendFormat:@" %@", components.lunarHolidayTitle];
+    }
+    
+    if (components.solarTermTitle)
+    {
+        [info appendFormat:@" %@", components.solarTermTitle];
+    }
     
     _selectedDayLabel.text = info;
-}
-
-- (void)updateCurrentYearComponentsWithComponents:(NSDateComponents *)comp
-{
-    _currentYearComponents = [[HHCalendar sharedCalendar] componentsFromComponents:comp];
 }
 
 - (void)initViewByMountOffset:(NSInteger)offset
@@ -211,6 +216,12 @@
         
         HHCalendarComponents *HHcomponents = [HHcalendar componentsFromDate:currentDate];
         
+        if (i == 0)
+        {
+            // 记录月信息
+            _currentMonthComponents = HHcomponents;
+        }
+        
         HHCalendarGridView *gridView = [[HHCalendarGridView alloc] initWitComponent:HHcomponents];
         
         if ([currentDate sameDayWithDate:today])
@@ -226,8 +237,6 @@
         
         [_contentView addSubview:gridView];
     }
-    
-    [self updateCurrentYearComponentsWithComponents:comps];
 }
 
 - (void)initInfoLabel

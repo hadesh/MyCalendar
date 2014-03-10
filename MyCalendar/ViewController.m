@@ -73,7 +73,7 @@
     if (self.calendarPicker.hidden)
     {
         self.calendarPicker.hidden = NO;
-        [self.calendarPicker setSelectedWithYear:self.calendarView.currentYearComponents.year month:self.calendarView.currentYearComponents.month];
+        [self.calendarPicker setSelectedWithYear:self.calendarView.currentMonthComponents.year month:self.calendarView.currentMonthComponents.month];
         
         self.calendarView.userInteractionEnabled = NO;
         
@@ -106,10 +106,10 @@
 
 - (void)updateUI
 {
-    self.title = [NSString stringWithFormat:@"%d年%d月[%@年(%@)]", self.calendarView.currentYearComponents.year, self.calendarView.currentYearComponents.month, self.calendarView.currentYearComponents.lunarYear, self.calendarView.currentYearComponents.lunarZodiac];
+    self.title = [NSString stringWithFormat:@"%d年%d月[%@年(%@)]", self.calendarView.currentMonthComponents.year, self.calendarView.currentMonthComponents.month, self.calendarView.currentMonthComponents.lunarYear, self.calendarView.currentMonthComponents.lunarZodiac];
     
-    NSInteger prevMonth = self.calendarView.currentYearComponents.month - 1 > 0 ? self.calendarView.currentYearComponents.month - 1 : 12;
-    NSInteger nextMonth = self.calendarView.currentYearComponents.month + 1 < 13 ? self.calendarView.currentYearComponents.month + 1 : 1;
+    NSInteger prevMonth = self.calendarView.currentMonthComponents.month - 1 > 0 ? self.calendarView.currentMonthComponents.month - 1 : 12;
+    NSInteger nextMonth = self.calendarView.currentMonthComponents.month + 1 < 13 ? self.calendarView.currentMonthComponents.month + 1 : 1;
     
     self.navigationItem.leftBarButtonItem.title = [NSString stringWithFormat:@"%d月", prevMonth];
     self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"%d月", nextMonth];
