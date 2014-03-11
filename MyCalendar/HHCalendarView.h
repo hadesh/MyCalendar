@@ -45,6 +45,8 @@ typedef NS_ENUM(NSInteger, HHCalendarType)
 
 - (void)calendarView:(HHCalendarView *)calendarView didCalendarTapped:(HHCalendarComponents *)components;
 
+- (void)didCalendarUpdatedForCalendarView:(HHCalendarView *)calendarView;
+
 @end
 
 

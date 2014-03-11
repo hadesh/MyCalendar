@@ -46,14 +46,39 @@
         
         UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
         singleTapRecognizer.numberOfTouchesRequired = 1;
-        singleTapRecognizer.delegate = self;
         
         [self addGestureRecognizer:singleTapRecognizer];
+        
+        UISwipeGestureRecognizer *swipeLeftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+        swipeLeftRecognizer.numberOfTouchesRequired = 1;
+        swipeLeftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+        
+        [self addGestureRecognizer:swipeLeftRecognizer];
+        
+        UISwipeGestureRecognizer *swipeRightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+        swipeRightRecognizer.numberOfTouchesRequired = 1;
+        swipeRightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+        
+        [self addGestureRecognizer:swipeRightRecognizer];
+
     }
+    
     return self;
 }
 
 #pragma mark - Gestures
+
+- (void)handleSwipe:(UISwipeGestureRecognizer *)recognizer
+{
+    if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
+    {
+        self.monthOffset -= 1;
+    }
+    else if (recognizer.direction == UISwipeGestureRecognizerDirectionRight)
+    {
+        self.monthOffset += 1;
+    }
+}
 
 - (void)handleSingleTap:(UIGestureRecognizer *)recognizer
 {
@@ -159,7 +184,7 @@
         return;
     }
     
-    NSMutableString *info = [NSMutableString stringWithFormat:@"%04d-%02d-%02d %@(%@)年 %@ %@", components.year, components.month, components.day, components.lunarYear, components.lunarZodiac, components.lunarMonth, components.lunarDay];
+    NSMutableString *info = [NSMutableString stringWithFormat:@"%04ld-%02ld-%02ld %@(%@)年 %@ %@", components.year, components.month, components.day, components.lunarYear, components.lunarZodiac, components.lunarMonth, components.lunarDay];
     
     if (components.lunarHolidayTitle)
     {
@@ -236,6 +261,12 @@
 
         
         [_contentView addSubview:gridView];
+    }
+    
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(didCalendarUpdatedForCalendarView:)])
+    {
+        [_delegate didCalendarUpdatedForCalendarView:self];
     }
 }
 

@@ -155,9 +155,9 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
         return;
     }
     
-    NSInteger year = (*components).year;
-    NSInteger month = (*components).month;
-    NSInteger day = (*components).day;
+    int year = (int)(*components).year;
+    int month = (int)(*components).month;
+    int day = (int)(*components).day;
     
     int lunarInfo = HHLunarCalendarInfo[year - kLunarYearStart];
     
@@ -301,7 +301,7 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
     
     if (!(*components).isDoubleMonth)
     {
-        NSString *key = [NSString stringWithFormat:@"%d-%d", (*components).lunarMonthIndex, (*components).lunarDayIndex];
+        NSString *key = [NSString stringWithFormat:@"%ld-%ld", (*components).lunarMonthIndex, (*components).lunarDayIndex];
         
         // 屏蔽腊月29春节
         if ((*components).isLargeMonth && [key isEqualToString:@"12-29"])
@@ -320,9 +320,9 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
         return;
     }
     
-    NSInteger year = (*components).year;
-    NSInteger month = (*components).month;
-    NSInteger day = (*components).day;
+    int year = (int)(*components).year;
+    int month = (int)(*components).month;
+    int day = (int)(*components).day;
     
     // 1号的时候计算本月节气日期
     if (day == 1)

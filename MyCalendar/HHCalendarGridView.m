@@ -103,7 +103,7 @@
     
     UIFont *font = [UIFont boldSystemFontOfSize:_fontSizeNormal];
     
-    NSString *dayString = [NSString stringWithFormat:@"%d", _calendarComponent.day];
+    NSString *dayString = [NSString stringWithFormat:@"%ld", _calendarComponent.day];
     CGSize sizeDay = [dayString sizeWithFont:font];
     double startX =  (kGridDefaultSize - sizeDay.width) / 2.0;
     

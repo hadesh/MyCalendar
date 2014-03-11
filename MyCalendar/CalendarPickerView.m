@@ -88,10 +88,10 @@
 {
     if (component == 0)
     {
-        return [NSString stringWithFormat:@"%d", _startYear + row];
+        return [NSString stringWithFormat:@"%ld", _startYear + row];
     }
     
-    return [NSString stringWithFormat:@"%d", row + 1];
+    return [NSString stringWithFormat:@"%ld", row + 1];
 }
 
 @end
