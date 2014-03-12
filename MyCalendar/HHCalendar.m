@@ -75,7 +75,7 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
         
         _lunarZodiacs = [NSArray arrayWithObjects:@"鼠", @"牛", @"虎", @"兔", @"龙", @"蛇", @"马", @"羊", @"猴", @"鸡", @"狗", @"猪", nil];
         
-        _solarTerms = [NSArray arrayWithObjects:@"小寒", @"大寒", @"立春", @"雨水",
+        _solarTerms = [NSArray arrayWithObjects:@"", @"小寒", @"大寒", @"立春", @"雨水",
                        @"惊蛰", @"春分", @"清明", @"谷雨",
                        @"立夏", @"小满", @"芒种", @"夏至",
                        @"小暑", @"大暑", @"立秋", @"处暑",
@@ -309,7 +309,7 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
             return;
         }
         
-        (*components).lunarHolidayTitle = [_lunarHolidays objectForKey:key];
+        (*components).lunarHolidayTitle = [_lunarHolidays objectForKey:key] ? : @"";
     }
 }
 
@@ -329,29 +329,26 @@ const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334
     {
         [_solarTermDic removeAllObjects];
         
-        for (int i = month * 2 - 1 - 1; i <= month * 2 - 1; ++i)
+        for (int i = month * 2 - 1; i <= month * 2; ++i)
         {
-            char *result = NULL;
-            getSolarTermDate(year, i, &result);
-            
-            if (result != NULL)
+            char *result = (char *)malloc(10);
+            if (getSolarTermDate(year, i, result))
             {
                 NSString *str = [NSString stringWithUTF8String:result];
                 [_solarTermDic setObject:[NSNumber numberWithInt:i] forKey:str];
-                free(result);
             }
+            
+            free(result);
 
         }
     }
     else
     {
         NSString *solarTermKey = [NSString stringWithFormat:@"%04d-%02d-%02d", year, month, day];
+
         NSNumber *index = [_solarTermDic objectForKey:solarTermKey];
-        if (index)
-        {
-            (*components).solarTermTitle = _solarTerms[[index intValue]];
-        }
         
+        (*components).solarTermTitle = _solarTerms[[index intValue]];
     } 
 }
 

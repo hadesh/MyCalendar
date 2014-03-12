@@ -72,11 +72,11 @@
 {
     if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
     {
-        self.monthOffset -= 1;
+        self.monthOffset += 1;
     }
     else if (recognizer.direction == UISwipeGestureRecognizerDirectionRight)
     {
-        self.monthOffset += 1;
+        self.monthOffset -= 1;
     }
 }
 
@@ -273,7 +273,7 @@
 - (void)initInfoLabel
 {
     _selectedDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 330, _contentView.bounds.size.width, kInfoLabelDefaultHeight)];
-    
+    _selectedDayLabel.font = [UIFont systemFontOfSize:14];
     [self addSubview:_selectedDayLabel];
     
     [self updateInfoLabelWithComponents:_todayComponents];

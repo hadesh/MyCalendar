@@ -41,6 +41,8 @@
     
     [self.view addSubview:self.calendarView];
     
+    [self updateUI];
+    
     self.calendarPicker = [[CalendarPickerView alloc] initWithFormYear:self.calendarView.startYear endYear:self.calendarView.endYear];
     
     self.calendarPicker.hidden = YES;

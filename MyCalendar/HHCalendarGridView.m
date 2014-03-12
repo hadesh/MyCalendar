@@ -62,12 +62,12 @@
     
     _lunarString = _calendarComponent.lunarDay;
     
-    if (_calendarComponent.solarTermTitle)
+    if (_calendarComponent.solarTermTitle.length > 0)
     {
         _lunarString = _calendarComponent.solarTermTitle;
     }
     
-    if (_calendarComponent.lunarHolidayTitle)
+    if (_calendarComponent.lunarHolidayTitle.length > 0)
     {
         _lunarString = _calendarComponent.lunarHolidayTitle;
         _state = HHCalendarGridStateWeekend;

@@ -11,6 +11,6 @@
 
 int getDay(int year, int month, int day);
 
-int getSolarTermDate(int year, int n, char **termDate);
+int getSolarTermDate(int year, int n, char *termDate);
 
 #endif
