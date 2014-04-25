@@ -163,6 +163,8 @@
 - (void)showsToday
 {
     [self initCurrentMonth];
+    
+    [self updateInfoLabelWithComponents:self.todayComponents];
 }
 
 - (NSInteger)startYear
@@ -254,7 +256,7 @@
             _todayComponents = HHcomponents;
             [gridView setState:HHCalendarGridStateToday];
         }
-        if (HHcomponents.weekday == 1 || HHcomponents.weekday == 7)
+        else if (HHcomponents.weekday == 1 || HHcomponents.weekday == 7)
         {
             [gridView setState:HHCalendarGridStateWeekend];
         }
@@ -262,7 +264,6 @@
         
         [_contentView addSubview:gridView];
     }
-    
     
     if (_delegate && [_delegate respondsToSelector:@selector(didCalendarUpdatedForCalendarView:)])
     {
