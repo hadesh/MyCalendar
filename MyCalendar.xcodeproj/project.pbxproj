@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		810C640D18C5C44A00B26829 /* weekdaysBarView.png in Resources */ = {isa = PBXBuildFile; fileRef = 810C640B18C5C44A00B26829 /* weekdaysBarView.png */; };
-		810C640E18C5C44A00B26829 /* weekdaysBarView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 810C640C18C5C44A00B26829 /* weekdaysBarView@2x.png */; };
-		810C641118C5C61300B26829 /* NSDate+Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 810C641018C5C61300B26829 /* NSDate+Calendar.m */; };
-		810EF93518C8197F0090D2F0 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 810EF93418C8197F0090D2F0 /* UIColor+Extension.m */; };
 		810EF93A18C848510090D2F0 /* CalendarPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810EF93918C848510090D2F0 /* CalendarPickerView.m */; };
 		811AC3F218BF09EB00D6B934 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811AC3F118BF09EB00D6B934 /* Foundation.framework */; };
 		811AC3F418BF09EB00D6B934 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811AC3F318BF09EB00D6B934 /* CoreGraphics.framework */; };
@@ -25,11 +21,16 @@
 		811AC41618BF09EB00D6B934 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811AC3F518BF09EB00D6B934 /* UIKit.framework */; };
 		811AC41E18BF09EB00D6B934 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 811AC41C18BF09EB00D6B934 /* InfoPlist.strings */; };
 		811AC42018BF09EB00D6B934 /* MyCalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 811AC41F18BF09EB00D6B934 /* MyCalendarTests.m */; };
-		811BC94B18C2065800206F1A /* calendar.c in Sources */ = {isa = PBXBuildFile; fileRef = 811BC94A18C2065800206F1A /* calendar.c */; };
-		811BC94E18C208C100206F1A /* HHCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 811BC94D18C208C100206F1A /* HHCalendar.m */; };
-		811BC95118C20A1D00206F1A /* HHCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 811BC95018C20A1D00206F1A /* HHCalendarView.m */; };
-		811BC95418C20A5E00206F1A /* HHCalendarGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 811BC95318C20A5E00206F1A /* HHCalendarGridView.m */; };
-		811BC95718C2108800206F1A /* HHCalendarComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 811BC95618C2108800206F1A /* HHCalendarComponents.m */; };
+		8151024B1CBBB52000CA3CD2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8151024A1CBBB52000CA3CD2 /* Launch Screen.storyboard */; };
+		8151025C1CBBB72A00CA3CD2 /* XMCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151024E1CBBB72A00CA3CD2 /* XMCalendar.m */; };
+		8151025D1CBBB72A00CA3CD2 /* XMCalendarComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 815102501CBBB72A00CA3CD2 /* XMCalendarComponents.m */; };
+		8151025E1CBBB72A00CA3CD2 /* XMCalendarDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 815102521CBBB72A00CA3CD2 /* XMCalendarDataProvider.m */; };
+		8151025F1CBBB72A00CA3CD2 /* XMCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 815102551CBBB72A00CA3CD2 /* XMCalendarView.m */; };
+		815102601CBBB72A00CA3CD2 /* XMCalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 815102571CBBB72A00CA3CD2 /* XMCalendarViewCell.m */; };
+		815102611CBBB72A00CA3CD2 /* XMCalendarViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 815102591CBBB72A00CA3CD2 /* XMCalendarViewHeader.m */; };
+		815102621CBBB72A00CA3CD2 /* XMLunarCalendar.c in Sources */ = {isa = PBXBuildFile; fileRef = 8151025A1CBBB72A00CA3CD2 /* XMLunarCalendar.c */; };
+		815102651CBBB84B00CA3CD2 /* NSDate+Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 815102641CBBB84B00CA3CD2 /* NSDate+Calendar.m */; };
+		815102681CBBB88400CA3CD2 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 815102671CBBB88400CA3CD2 /* UIView+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,12 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		810C640B18C5C44A00B26829 /* weekdaysBarView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weekdaysBarView.png; sourceTree = "<group>"; };
-		810C640C18C5C44A00B26829 /* weekdaysBarView@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weekdaysBarView@2x.png"; sourceTree = "<group>"; };
-		810C640F18C5C61300B26829 /* NSDate+Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Calendar.h"; sourceTree = "<group>"; };
-		810C641018C5C61300B26829 /* NSDate+Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Calendar.m"; sourceTree = "<group>"; };
-		810EF93318C8197F0090D2F0 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
-		810EF93418C8197F0090D2F0 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		810EF93818C848510090D2F0 /* CalendarPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarPickerView.h; sourceTree = "<group>"; };
 		810EF93918C848510090D2F0 /* CalendarPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarPickerView.m; sourceTree = "<group>"; };
 		811AC3EE18BF09EB00D6B934 /* MyCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,16 +64,26 @@
 		811AC41B18BF09EB00D6B934 /* MyCalendarTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyCalendarTests-Info.plist"; sourceTree = "<group>"; };
 		811AC41D18BF09EB00D6B934 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		811AC41F18BF09EB00D6B934 /* MyCalendarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCalendarTests.m; sourceTree = "<group>"; };
-		811BC94918C2064200206F1A /* calendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = calendar.h; sourceTree = "<group>"; };
-		811BC94A18C2065800206F1A /* calendar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = calendar.c; sourceTree = "<group>"; };
-		811BC94C18C208C100206F1A /* HHCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHCalendar.h; sourceTree = "<group>"; };
-		811BC94D18C208C100206F1A /* HHCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHCalendar.m; sourceTree = "<group>"; };
-		811BC94F18C20A1D00206F1A /* HHCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHCalendarView.h; sourceTree = "<group>"; };
-		811BC95018C20A1D00206F1A /* HHCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHCalendarView.m; sourceTree = "<group>"; };
-		811BC95218C20A5E00206F1A /* HHCalendarGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHCalendarGridView.h; sourceTree = "<group>"; };
-		811BC95318C20A5E00206F1A /* HHCalendarGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHCalendarGridView.m; sourceTree = "<group>"; };
-		811BC95518C2108800206F1A /* HHCalendarComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHCalendarComponents.h; sourceTree = "<group>"; };
-		811BC95618C2108800206F1A /* HHCalendarComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHCalendarComponents.m; sourceTree = "<group>"; };
+		8151024A1CBBB52000CA3CD2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8151024D1CBBB72A00CA3CD2 /* XMCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMCalendar.h; sourceTree = "<group>"; };
+		8151024E1CBBB72A00CA3CD2 /* XMCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMCalendar.m; sourceTree = "<group>"; };
+		8151024F1CBBB72A00CA3CD2 /* XMCalendarComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMCalendarComponents.h; sourceTree = "<group>"; };
+		815102501CBBB72A00CA3CD2 /* XMCalendarComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMCalendarComponents.m; sourceTree = "<group>"; };
+		815102511CBBB72A00CA3CD2 /* XMCalendarDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMCalendarDataProvider.h; sourceTree = "<group>"; };
+		815102521CBBB72A00CA3CD2 /* XMCalendarDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMCalendarDataProvider.m; sourceTree = "<group>"; };
+		815102531CBBB72A00CA3CD2 /* XMCalendarKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMCalendarKit.h; sourceTree = "<group>"; };
+		815102541CBBB72A00CA3CD2 /* XMCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMCalendarView.h; sourceTree = "<group>"; };
+		815102551CBBB72A00CA3CD2 /* XMCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMCalendarView.m; sourceTree = "<group>"; };
+		815102561CBBB72A00CA3CD2 /* XMCalendarViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMCalendarViewCell.h; sourceTree = "<group>"; };
+		815102571CBBB72A00CA3CD2 /* XMCalendarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMCalendarViewCell.m; sourceTree = "<group>"; };
+		815102581CBBB72A00CA3CD2 /* XMCalendarViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMCalendarViewHeader.h; sourceTree = "<group>"; };
+		815102591CBBB72A00CA3CD2 /* XMCalendarViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMCalendarViewHeader.m; sourceTree = "<group>"; };
+		8151025A1CBBB72A00CA3CD2 /* XMLunarCalendar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = XMLunarCalendar.c; sourceTree = "<group>"; };
+		8151025B1CBBB72A00CA3CD2 /* XMLunarCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLunarCalendar.h; sourceTree = "<group>"; };
+		815102631CBBB84B00CA3CD2 /* NSDate+Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Calendar.h"; sourceTree = "<group>"; };
+		815102641CBBB84B00CA3CD2 /* NSDate+Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Calendar.m"; sourceTree = "<group>"; };
+		815102661CBBB88400CA3CD2 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		815102671CBBB88400CA3CD2 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,19 +110,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		810EF93718C847FD0090D2F0 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				811BC94C18C208C100206F1A /* HHCalendar.h */,
-				811BC94D18C208C100206F1A /* HHCalendar.m */,
-				811BC95518C2108800206F1A /* HHCalendarComponents.h */,
-				811BC95618C2108800206F1A /* HHCalendarComponents.m */,
-				811BC94918C2064200206F1A /* calendar.h */,
-				811BC94A18C2065800206F1A /* calendar.c */,
-			);
-			name = Calendar;
-			sourceTree = "<group>";
-		};
 		811AC3E518BF09EA00D6B934 = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +149,7 @@
 				811AC40A18BF09EB00D6B934 /* ViewController.m */,
 				810EF93818C848510090D2F0 /* CalendarPickerView.h */,
 				810EF93918C848510090D2F0 /* CalendarPickerView.m */,
-				810EF93718C847FD0090D2F0 /* Calendar */,
-				811BC95818C2287400206F1A /* CalendarViews */,
+				8151024C1CBBB72A00CA3CD2 /* XMCalendar */,
 				811AC40C18BF09EB00D6B934 /* Images.xcassets */,
 				811AC3F818BF09EB00D6B934 /* Supporting Files */,
 			);
@@ -172,6 +163,7 @@
 				811AC3FA18BF09EB00D6B934 /* InfoPlist.strings */,
 				811AC3FD18BF09EB00D6B934 /* main.m */,
 				811AC3FF18BF09EB00D6B934 /* MyCalendar-Prefix.pch */,
+				8151024A1CBBB52000CA3CD2 /* Launch Screen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -194,21 +186,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		811BC95818C2287400206F1A /* CalendarViews */ = {
+		8151024C1CBBB72A00CA3CD2 /* XMCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				810C640F18C5C61300B26829 /* NSDate+Calendar.h */,
-				810C641018C5C61300B26829 /* NSDate+Calendar.m */,
-				810EF93318C8197F0090D2F0 /* UIColor+Extension.h */,
-				810EF93418C8197F0090D2F0 /* UIColor+Extension.m */,
-				810C640B18C5C44A00B26829 /* weekdaysBarView.png */,
-				810C640C18C5C44A00B26829 /* weekdaysBarView@2x.png */,
-				811BC94F18C20A1D00206F1A /* HHCalendarView.h */,
-				811BC95018C20A1D00206F1A /* HHCalendarView.m */,
-				811BC95218C20A5E00206F1A /* HHCalendarGridView.h */,
-				811BC95318C20A5E00206F1A /* HHCalendarGridView.m */,
+				815102531CBBB72A00CA3CD2 /* XMCalendarKit.h */,
+				815102661CBBB88400CA3CD2 /* UIView+Extension.h */,
+				815102671CBBB88400CA3CD2 /* UIView+Extension.m */,
+				815102631CBBB84B00CA3CD2 /* NSDate+Calendar.h */,
+				815102641CBBB84B00CA3CD2 /* NSDate+Calendar.m */,
+				8151024D1CBBB72A00CA3CD2 /* XMCalendar.h */,
+				8151024E1CBBB72A00CA3CD2 /* XMCalendar.m */,
+				8151024F1CBBB72A00CA3CD2 /* XMCalendarComponents.h */,
+				815102501CBBB72A00CA3CD2 /* XMCalendarComponents.m */,
+				815102511CBBB72A00CA3CD2 /* XMCalendarDataProvider.h */,
+				815102521CBBB72A00CA3CD2 /* XMCalendarDataProvider.m */,
+				815102541CBBB72A00CA3CD2 /* XMCalendarView.h */,
+				815102551CBBB72A00CA3CD2 /* XMCalendarView.m */,
+				815102561CBBB72A00CA3CD2 /* XMCalendarViewCell.h */,
+				815102571CBBB72A00CA3CD2 /* XMCalendarViewCell.m */,
+				815102581CBBB72A00CA3CD2 /* XMCalendarViewHeader.h */,
+				815102591CBBB72A00CA3CD2 /* XMCalendarViewHeader.m */,
+				8151025B1CBBB72A00CA3CD2 /* XMLunarCalendar.h */,
+				8151025A1CBBB72A00CA3CD2 /* XMLunarCalendar.c */,
 			);
-			name = CalendarViews;
+			path = XMCalendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +256,7 @@
 		811AC3E618BF09EA00D6B934 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "xiaoming han";
 				TargetAttributes = {
 					811AC41118BF09EB00D6B934 = {
@@ -287,9 +288,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				810C640E18C5C44A00B26829 /* weekdaysBarView@2x.png in Resources */,
-				810C640D18C5C44A00B26829 /* weekdaysBarView.png in Resources */,
 				811AC40D18BF09EB00D6B934 /* Images.xcassets in Resources */,
+				8151024B1CBBB52000CA3CD2 /* Launch Screen.storyboard in Resources */,
 				811AC3FC18BF09EB00D6B934 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,16 +310,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				810EF93A18C848510090D2F0 /* CalendarPickerView.m in Sources */,
-				811BC95718C2108800206F1A /* HHCalendarComponents.m in Sources */,
-				810C641118C5C61300B26829 /* NSDate+Calendar.m in Sources */,
-				811BC95118C20A1D00206F1A /* HHCalendarView.m in Sources */,
-				811BC95418C20A5E00206F1A /* HHCalendarGridView.m in Sources */,
-				811BC94E18C208C100206F1A /* HHCalendar.m in Sources */,
+				815102651CBBB84B00CA3CD2 /* NSDate+Calendar.m in Sources */,
+				8151025C1CBBB72A00CA3CD2 /* XMCalendar.m in Sources */,
+				8151025F1CBBB72A00CA3CD2 /* XMCalendarView.m in Sources */,
+				8151025E1CBBB72A00CA3CD2 /* XMCalendarDataProvider.m in Sources */,
+				815102681CBBB88400CA3CD2 /* UIView+Extension.m in Sources */,
+				815102621CBBB72A00CA3CD2 /* XMLunarCalendar.c in Sources */,
+				815102601CBBB72A00CA3CD2 /* XMCalendarViewCell.m in Sources */,
 				811AC40B18BF09EB00D6B934 /* ViewController.m in Sources */,
 				811AC40218BF09EB00D6B934 /* AppDelegate.m in Sources */,
-				810EF93518C8197F0090D2F0 /* UIColor+Extension.m in Sources */,
 				811AC3FE18BF09EB00D6B934 /* main.m in Sources */,
-				811BC94B18C2065800206F1A /* calendar.c in Sources */,
+				8151025D1CBBB72A00CA3CD2 /* XMCalendarComponents.m in Sources */,
+				815102611CBBB72A00CA3CD2 /* XMCalendarViewHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +381,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -441,7 +444,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyCalendar/MyCalendar-Prefix.pch";
 				INFOPLIST_FILE = "MyCalendar/MyCalendar-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -455,7 +459,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyCalendar/MyCalendar-Prefix.pch";
 				INFOPLIST_FILE = "MyCalendar/MyCalendar-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -477,6 +482,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MyCalendarTests/MyCalendarTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -495,6 +501,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyCalendar/MyCalendar-Prefix.pch";
 				INFOPLIST_FILE = "MyCalendarTests/MyCalendarTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
