@@ -189,7 +189,7 @@ static const int monthDayAdd[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 3
     
     if (!(*components).isDoubleMonth)
     {
-        NSString *key = [NSString stringWithFormat:@"%ld-%ld", (*components).lunarMonthIndex, (*components).lunarDayIndex];
+        NSString *key = [NSString stringWithFormat:@"%d-%d", @((*components).lunarMonthIndex).intValue, @((*components).lunarDayIndex).intValue];
         
         // 屏蔽大月情况下腊月29除夕
         if ((*components).isLargeMonth && [key isEqualToString:@"12-29"])

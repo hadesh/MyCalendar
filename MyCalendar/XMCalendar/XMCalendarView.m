@@ -398,13 +398,11 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    NSLog(@"bg");
     _isAnimatedScrolling = NO;
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-        NSLog(@"se");
     _isAnimatedScrolling = NO;
     [self scrollViewDidScroll:scrollView];
 }
